@@ -1,0 +1,10 @@
+.DS_Store
+.idea
+*.iml
+logs
+dist
+out
+gen
+target
+build
+*.spec
