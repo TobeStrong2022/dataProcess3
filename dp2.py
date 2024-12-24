@@ -161,7 +161,14 @@ for r in dataframe_to_rows(data_current, index=False, header=True):
 wb.save('分析结果/预警提示'+time_stamp+'.xlsx')
 
 # 打开刚刚生成的文件
-os.system('start excel 分析结果/预警提示'+time_stamp+'.xlsx')
+os.system('start 分析结果/预警提示'+time_stamp+'.xlsx')
+print("预警提示文件生成完成！")
+print("......")
+print("......")
+print("处理任务二...")
+
+if __name__ == '__main__':
+    import dp22
 
 
 
