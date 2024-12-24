@@ -7,6 +7,7 @@
 # 库存周转率 = 该期间的出库总金额 / 该期间的平均库存金额
 # 条包比例 = 条笔数 / 包笔数
 # 单笔销售额 = 总销售额 / 总销售笔数
+import os
 
 # 二是围绕客户的基础信息、主销规格、品牌宽度等5类数据，全面掌握、准确诊断客户经营情况，提供针对性经营指导。
 
@@ -153,13 +154,14 @@ ws3 = wb.create_sheet('当前数据（本月）')
 # 保留前六列和存销比、动销率、库存周转率、条包比例、单笔销售额列
 data_previous = pd.concat([data_previous.iloc[:, :6],  data_previous[['存销比', '动销率', '库存周转率', '条包比例', '单笔销售额']],], axis=1)
 data_current = pd.concat([data_current.iloc[:, :6],  data_current[['存销比', '动销率', '库存周转率', '条包比例', '单笔销售额']],], axis=1)
-
 for r in dataframe_to_rows(data_previous, index=False, header=True):
     ws2.append(r)
 for r in dataframe_to_rows(data_current, index=False, header=True):
     ws3.append(r)
-
 wb.save('分析结果/预警提示'+time_stamp+'.xlsx')
+
+# 打开刚刚生成的文件
+os.system('start excel 分析结果/预警提示'+time_stamp+'.xlsx')
 
 
 
